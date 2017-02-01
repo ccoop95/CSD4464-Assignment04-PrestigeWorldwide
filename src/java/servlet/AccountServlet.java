@@ -32,8 +32,10 @@ public class AccountServlet extends HttpServlet {
         response.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);
+        
         double deposit = (double) session.getAttribute("deposit");
         double withdraw = (double) session.getAttribute("withdraw");
+        request.getServletContext().getSessionCookieConfig().setHttpOnly(true);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         
