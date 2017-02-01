@@ -42,5 +42,8 @@ public class AccountServlet extends HttpServlet {
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);
     }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        
+    }
     
 }
