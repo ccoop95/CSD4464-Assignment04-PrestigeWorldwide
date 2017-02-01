@@ -38,7 +38,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/account")
 public class AccountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response){
-        
+        response.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+        response.setDateHeader("Expires", 0);
     }
     
 }
