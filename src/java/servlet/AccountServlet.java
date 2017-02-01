@@ -16,21 +16,11 @@
 
 package servlet;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.*;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import javax.servlet.AsyncContext;
-import javax.servlet.AsyncEvent;
-import javax.servlet.AsyncListener;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.annotation.HttpConstraint;
-import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Provides an Account Balance and Basic Withdrawal/Deposit Operations
@@ -38,9 +28,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/account")
 public class AccountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response){
+        HttpSession session = request.getSession();
         response.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);
+        double deposit = (double) session.getAttribute("deposit");
+        double withdraw = (double) session.getAttribute("withdraw");
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         
