@@ -16,13 +16,29 @@
 
 package servlet;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.*;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import javax.servlet.AsyncContext;
+import javax.servlet.AsyncEvent;
+import javax.servlet.AsyncListener;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.HttpConstraint;
+import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Provides an Account Balance and Basic Withdrawal/Deposit Operations
  */
 @WebServlet("/account")
 public class AccountServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response){
+        
+    }
     
 }
