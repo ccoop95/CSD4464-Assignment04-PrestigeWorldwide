@@ -16,6 +16,7 @@
 
 package servlet;
 
+import static java.lang.System.out;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/account")
 public class AccountServlet extends HttpServlet {
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
         response.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
@@ -35,7 +37,18 @@ public class AccountServlet extends HttpServlet {
         
         double deposit = (double) session.getAttribute("deposit");
         double withdraw = (double) session.getAttribute("withdraw");
+        double balance = (double) session.getAttribute("balance");
         request.getServletContext().getSessionCookieConfig().setHttpOnly(true);
+        
+        if (deposit > 0) {
+            balance = balance + deposit;
+            out.println("$" + balance);
+        }
+        
+        if (withdraw <= balance){
+            balance = balance - withdraw;
+            out.println("$" + balance);
+        }
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         
