@@ -41,16 +41,16 @@ public class AccountServlet extends HttpServlet {
         request.getServletContext().getSessionCookieConfig().setHttpOnly(true);
         
         
-       /* if (deposit > 0) {
-            balance = balance + deposit;
-            out.println("$" + balance);
+        if (deposit > 0) {
+            deposit(deposit);
+            out.println(getBalance());
         }
         
         if (withdraw <= balance){
-            balance = balance - withdraw;
-            out.println("$" + balance);
+            withdraw(withdraw);
+            out.println(getBalance());
         } 
-*/
+
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         
