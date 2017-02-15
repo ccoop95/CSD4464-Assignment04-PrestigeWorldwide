@@ -40,7 +40,8 @@ public class AccountServlet extends HttpServlet {
         double balance = (double) session.getAttribute("balance");
         request.getServletContext().getSessionCookieConfig().setHttpOnly(true);
         
-        if (deposit > 0) {
+        
+       /* if (deposit > 0) {
             balance = balance + deposit;
             out.println("$" + balance);
         }
@@ -48,7 +49,8 @@ public class AccountServlet extends HttpServlet {
         if (withdraw <= balance){
             balance = balance - withdraw;
             out.println("$" + balance);
-        }
+        } 
+*/
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         

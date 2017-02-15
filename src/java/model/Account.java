@@ -36,16 +36,16 @@ public class Account {
      * Adds an amount of cash to the total balance of the account
      * @param cash - the cash to deposit
      */
-    public void deposit(double cash) {
-        balance += cash;
+    public void deposit(double deposit) {
+        balance += deposit;
     }
     
     /**
      * Deducts an amount of cash from the total balance of the account
      * @param cash - the cash to withdraw
      */
-    public void withdraw(double cash) {
-        balance -= cash;
+    public void withdraw(double withdraw) {
+        balance -= withdraw;
     }
     
     /**
